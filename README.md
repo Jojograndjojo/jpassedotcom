@@ -1,14 +1,10 @@
 # jpassedotcom
 
-Software engineering portfolio — a single page with who I am and how to reach me.
+Personal site — a single page with who I am and how to reach me.
 
 ## What this is
 
-A personal portfolio site for Jonathan Passe, software engineer. It exists to give potential clients and employers a clear signal about who I am, what I do, and how to contact me. It will grow to include articles, talks, public projects, and upcoming events.
-
-## Target audience
-
-Potential clients and employers who want to understand my background and get in touch.
+The personal site of Jonathan Passe, software engineer. It serves as a professional presence on the web. It will grow to include articles, talks, public projects, and upcoming events.
 
 ## Success metrics
 
