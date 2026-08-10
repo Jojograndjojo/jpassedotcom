@@ -1,0 +1,12 @@
+---
+import Base from "../../layouts/Base.astro";
+import Homepage from "../../components/Homepage.astro";
+
+const locale = "fr";
+const alternateLocale = "en";
+const alternateUrl = `/${alternateLocale}/`;
+---
+
+<Base locale={locale} title="Jonathan Passe — Ingénieur Logiciel" {alternateLocale} {alternateUrl}>
+	<Homepage {locale} {alternateLocale} {alternateUrl} />
+</Base>

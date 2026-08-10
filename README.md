@@ -53,17 +53,27 @@ Full architecture decisions: [`dr/adr/`](dr/adr/)
 ```bash
 # Prerequisites: Node v26+, npm
 
-# Scaffold the Astro project
-npm create astro@latest . -- --template minimal
-
 # Install dependencies
 npm install
 
 # Run dev server
-npm run dev
+just dev
 
 # Build for production
-npm run build
+just build
+```
+
+## Testing
+
+```bash
+# Run test suite
+just test
+
+# Watch mode (re-runs on file change)
+just test-watch
+
+# Run all quality gates (lint + test + build)
+just check
 ```
 
 ## Decisions

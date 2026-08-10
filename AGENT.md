@@ -42,6 +42,59 @@
 - Never change the Astro build output directory without confirmation (GitHub Pages deployment may depend on it)
 - Never invent placeholder content — the photo, bio text, and any article drafts are personal. Ask before generating or committing content.
 
+## Code Style & Practices
+
+### Test-Driven Development
+
+Follow red-green-refactor:
+
+1. **Red:** Write a test that fails. Run it to confirm the failure.
+2. **Green:** Write the minimum code to pass. Run it to confirm the pass.
+3. **Refactor:** Clean up while tests stay green.
+
+Never write implementation before the test that exercises it. A passing test with no prior failing run is a warning sign — the test may be testing nothing.
+
+### British English
+
+Use British English spelling in all user-facing text and code comments:
+
+- `colour`, not `color`
+- `behaviour`, not `behavior`
+- `organisation`, not `organization`
+- `centre`, not `center`
+- `analyse`, not `analyze`
+- `licence` (noun), `license` (verb)
+
+Variable names and code identifiers are exempt — `colorScheme` in TypeScript is fine.
+
+### SOLID Principles
+
+- **S — Single Responsibility:** Each Astro component, function, or module does exactly one thing. If a component renders a photo AND handles language switching, split it.
+- **O — Open/Closed:** Prefer composition over modification. Add new behaviour by composing existing components, not by adding conditionals to their internals.
+- **L — Liskov Substitution:** If a component accepts a prop typed as `ImageProps`, any subtype must work without the parent knowing the difference.
+- **I — Interface Segregation:** Props interfaces are minimal. A component that only needs `src` and `alt` should not accept an entire `ImageMetadata` object.
+- **D — Dependency Inversion:** High-level modules (pages) depend on abstractions (props interfaces), not on low-level modules (concrete API clients or file readers).
+
+### Clean Code
+
+- **Comments explain WHY, not WHAT.** The code tells what it does through structure and naming. A comment is for intent, constraints, or a non-obvious choice.
+- **No commented-out code.** Delete it. Git remembers.
+- **Meaningful names.** `getLocalisedGreeting(locale)` not `getGreeting(l)`.
+- **Functions do one thing.** If the name needs an "and", it does two things.
+- **Early returns** over deep nesting. A guard clause at the top beats an `if` wrapping the whole body.
+
+### Modular Structure
+
+- **Each Astro component has one reason to change.** A `PhotoCard.astro` renders a photo and caption. Language switching belongs elsewhere.
+- **Extract reusable pieces into `src/components/`.** If the same markup appears in two places, it becomes a component.
+- **Utilities live in `src/lib/`.** Pure functions with no Astro dependency — `formatDate`, `resolveLocale`, `validateEmail`.
+
+### Separation of Concerns
+
+- **Data, presentation, and interaction are separate.** An Astro page orchestrates data and passes it to components. A component renders markup. A script handles interaction.
+- **Content lives in content files** (Markdown, YAML, or Astro content collections), not embedded in components.
+- **i18n strings are never inlined in markup.** They live in translation files, keyed by locale. Components reference keys.
+
 ## Project Context
 
 - **Domain:** Personal software engineering portfolio targeting potential clients and employers. Bilingual (English and French) from day one.
@@ -55,14 +108,13 @@
 
 ### Dev server
 
-Use background mode for the dev server:
+Use `npx astro` (not the Airflow CLI) for the dev server:
 
 ```bash
-astro dev --background     # start in background
-astro dev stop             # stop the server
-astro dev status           # check if running
-astro dev logs             # view server output
+npx astro dev              # start dev server
 ```
+
+Or use `just dev` from the justfile.
 
 ### Key Astro docs
 
