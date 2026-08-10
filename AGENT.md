@@ -51,6 +51,32 @@
   - Bilingual content means every content change may need a French counterpart. Flag it when a change touches user-facing text.
   - The Astro build output directory feeds GitHub Pages. Don't move it without checking the deployment workflow.
 
+## Astro Workflow
+
+### Dev server
+
+Use background mode for the dev server:
+
+```bash
+astro dev --background     # start in background
+astro dev stop             # stop the server
+astro dev status           # check if running
+astro dev logs             # view server output
+```
+
+### Key Astro docs
+
+Consult these before working on related tasks:
+
+- [Routing — pages, dynamic routes, middleware](https://docs.astro.build/en/guides/routing/)
+- [Astro components](https://docs.astro.build/en/basics/astro-components/)
+- [Framework components — React, Vue, Svelte, etc.](https://docs.astro.build/en/guides/framework-components/)
+- [Content collections](https://docs.astro.build/en/guides/content-collections/)
+- [Styling and Tailwind](https://docs.astro.build/en/guides/styling/)
+- [Internationalization (i18n)](https://docs.astro.build/en/guides/internationalization/) — **relevant: this project is bilingual (DR-0005)**
+
+Full docs: https://docs.astro.build
+
 ## Decision Recording
 
 Decisions live in `dr/<type>/` as `DR-nnnn-<slug>.md`.
