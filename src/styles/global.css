@@ -2,7 +2,7 @@
 
 :root {
   /* Colour */
-  --color-background: #fef5ef;
+  --color-background: #fafafa;
   --color-text: #143642;
   --color-accent: #bf3100;
   --color-accent-hover: #ff9f1c;
@@ -166,7 +166,6 @@ img {
 .homepage-photo img {
   width: 300px;
   border-radius: 50%;
-  border: 2px solid var(--color-secondary);
 }
 
 /* ---- Print ---- */

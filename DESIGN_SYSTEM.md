@@ -10,7 +10,7 @@
 
 | Token                  | Value     | Role                                      |
 | ---------------------- | --------- | ----------------------------------------- |
-| `--color-background`   | `#FEF5EF` | Page background — warm cream              |
+| `--color-background`   | `#fafafa` | Page background — off-white               |
 | `--color-text`         | `#143642` | Body text, headings — dark teal           |
 | `--color-accent`       | `#BF3100` | Links, focus ring — red-orange            |
 | `--color-accent-hover` | `#FF9F1C` | Link hover, underline — amber             |
@@ -22,9 +22,9 @@
 
 | Foreground          | Background   | Ratio  | Result      |
 | ------------------- | ------------ | ------ | ----------- |
-| `#143642` text      | `#FEF5EF` bg | 10.5:1 | ✅ AAA      |
-| `#BF3100` accent    | `#FEF5EF` bg | 5.2:1  | ✅ AA       |
-| `#0F8B8D` secondary | `#FEF5EF` bg | 4.7:1  | ✅ AA large |
+| `#143642` text      | `#fafafa` bg | 10.5:1 | ✅ AAA      |
+| `#BF3100` accent    | `#fafafa` bg | 5.2:1  | ✅ AA       |
+| `#0F8B8D` secondary | `#fafafa` bg | 4.7:1  | ✅ AA large |
 
 ---
 
@@ -71,12 +71,12 @@
 
 ## Image Tokens
 
-| Property                 | Value               |
-| ------------------------ | ------------------- |
-| Photo width (desktop)    | `300px`             |
-| Photo max-width (mobile) | `100%`              |
-| Photo border-radius      | `50%` (circle)      |
-| Photo border             | `2px solid #0F8B8D` |
+| Property                 | Value          |
+| ------------------------ | -------------- |
+| Photo width (desktop)    | `300px`        |
+| Photo max-width (mobile) | `100%`         |
+| Photo border-radius      | `50%` (circle) |
+| Photo border             | none           |
 
 ---
 
