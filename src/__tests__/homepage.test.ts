@@ -74,3 +74,25 @@ describe("Root redirect", () => {
     expect(html).toContain('href="/fr/"');
   });
 });
+
+describe("404 page", () => {
+  it("serves a 404 page", () => {
+    const html = readFileSync(join(distDir, "404.html"), "utf-8");
+    expect(html).toContain("Page not found");
+  });
+
+  it("includes content in French", () => {
+    const html = readFileSync(join(distDir, "404.html"), "utf-8");
+    expect(html).toContain("Page introuvable");
+  });
+
+  it("includes a link back to home in English", () => {
+    const html = readFileSync(join(distDir, "404.html"), "utf-8");
+    expect(html).toContain('href="/en/"');
+  });
+
+  it("includes a link back to home in French", () => {
+    const html = readFileSync(join(distDir, "404.html"), "utf-8");
+    expect(html).toContain('href="/fr/"');
+  });
+});
