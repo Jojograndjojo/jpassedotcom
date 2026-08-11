@@ -34,29 +34,28 @@ The homepage photo (`/main.jpg`) is currently displayed as a 300×300 square wit
 
 ## Options considered
 
-| Option                        | Summary                                                      | Why not chosen                                                                    |
-| ----------------------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------------- |
-| Square, no border             | Current state                                                | Feels unfinished against the deliberate palette                                   |
-| Circle, no border             | Friendly, clean                                              | The photo edge can blend into the cream background depending on the image content |
-| **Circle with subtle border** | `border-radius: 50%`, thin border using the secondary accent | **Chosen**                                                                        |
+| Option                | Summary                         | Why not chosen                                                                    |
+| --------------------- | ------------------------------- | --------------------------------------------------------------------------------- |
+| Square, no border     | Current state                   | Feels unfinished against the deliberate palette                                   |
+| Circle, no border     | Friendly, clean                 | The photo edge can blend into the cream background depending on the image content |
+| **Circle, no border** | `border-radius: 50%`, no border | **Chosen** — post-implementation preference for a cleaner look                    |
 
 ## Decision outcome
 
-The photo is displayed as a circle (`border-radius: 50%`) with a subtle border:
+The photo is displayed as a circle (`border-radius: 50%`) with no border:
 
-| Property        | Value               | Rationale                                    |
-| --------------- | ------------------- | -------------------------------------------- |
-| `border-radius` | `50%`               | Circle crop                                  |
-| `border`        | `2px solid #0F8B8D` | Subtle definition using the secondary accent |
-| `width`         | `300px`             | Desktop size                                 |
-| `max-width`     | `100%`              | Fluid on mobile (inherited)                  |
-| `height`        | `auto`              | Maintains aspect ratio (inherited)           |
+| Property        | Value   | Rationale                          |
+| --------------- | ------- | ---------------------------------- |
+| `border-radius` | `50%`   | Circle crop                        |
+| `width`         | `300px` | Desktop size                       |
+| `max-width`     | `100%`  | Fluid on mobile (inherited)        |
+| `height`        | `auto`  | Maintains aspect ratio (inherited) |
 
 The favicon (JP initials SVG) is unchanged — it was already settled as part of v1.
 
 ## Consequences
 
-- **Positive:** The circle crop immediately signals "person." The subtle teal border ties the photo to the palette without shouting. The photo survives any background colour change.
+- **Positive:** The circle crop immediately signals "person."
 - **Negative:** `border-radius: 50%` only works if the image is square. The current photo is 300×300, so this holds. If replaced with a non-square image, it will need `object-fit: cover`.
 - **Accepted risk:** If the photo's edges are close to the subject's head, a circle crop can clip awkwardly. The current photo has enough headroom.
 

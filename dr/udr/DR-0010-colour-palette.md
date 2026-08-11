@@ -34,11 +34,11 @@ The site currently uses `#1a1a1a` text on `#fff` background with no accent colou
 
 ## Options considered
 
-| Option                                        | Summary                                               | Why not chosen                                                  |
-| --------------------------------------------- | ----------------------------------------------------- | --------------------------------------------------------------- |
-| Stick with `#1a1a1a` on `#fff` with no accent | Minimal, clean, zero personality                      | Links are invisible; page reads as unstyled rather than minimal |
-| Muted blue accent on white                    | Professional, safe                                    | User wanted something warmer and more distinctive               |
-| **Five-colour warm palette from coolors.co**  | `#BF3100`, `#FF9F1C`, `#FEF5EF`, `#143642`, `#0F8B8D` | **Chosen**                                                      |
+| Option                                        | Summary                                                                      | Why not chosen                                                  |
+| --------------------------------------------- | ---------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| Stick with `#1a1a1a` on `#fff` with no accent | Minimal, clean, zero personality                                             | Links are invisible; page reads as unstyled rather than minimal |
+| Muted blue accent on white                    | Professional, safe                                                           | User wanted something warmer and more distinctive               |
+| **Five-colour warm palette from coolors.co**  | `#BF3100`, `#FF9F1C`, `#fafafa` (off-white background), `#143642`, `#0F8B8D` | **Chosen**                                                      |
 
 ## Decision outcome
 
@@ -46,7 +46,7 @@ The five colours are assigned to semantic roles:
 
 | Token                  | Value     | Role                                                                |
 | ---------------------- | --------- | ------------------------------------------------------------------- |
-| `--color-background`   | `#FEF5EF` | Page background — warm cream                                        |
+| `--color-background`   | `#fafafa` | Page background — off-white                                         |
 | `--color-text`         | `#143642` | Body text — dark teal (softer and more distinctive than near-black) |
 | `--color-accent`       | `#BF3100` | Links, focus ring — bold red-orange, highly discoverable            |
 | `--color-accent-hover` | `#FF9F1C` | Link hover state — warm amber                                       |
@@ -56,15 +56,15 @@ The five colours are assigned to semantic roles:
 
 | Foreground          | Background           | Ratio   | AA normal     | AA large |
 | ------------------- | -------------------- | ------- | ------------- | -------- |
-| `#143642` text      | `#FEF5EF` background | ~10.5:1 | ✅ Pass       | ✅ Pass  |
-| `#BF3100` accent    | `#FEF5EF` background | ~5.2:1  | ✅ Pass       | ✅ Pass  |
-| `#0F8B8D` secondary | `#FEF5EF` background | ~4.7:1  | ⚠️ Borderline | ✅ Pass  |
+| `#143642` text      | `#fafafa` background | ~11.5:1 | ✅ Pass       | ✅ Pass  |
+| `#BF3100` accent    | `#fafafa` background | ~5.5:1  | ✅ Pass       | ✅ Pass  |
+| `#0F8B8D` secondary | `#fafafa` background | ~5.0:1  | ⚠️ Borderline | ✅ Pass  |
 
 The secondary accent (`#0F8B8D`) is borderline for normal text at small sizes. It will only be used for non-critical elements (language toggle, metadata) at `0.875rem` or larger, where AA large-text thresholds apply.
 
 ## Consequences
 
-- **Positive:** The palette is warm, personal, and distinctive. The red-orange accent makes links immediately discoverable. The cream background softens the page without looking beige.
+- **Positive:** The palette is personal and distinctive. The red-orange accent makes links immediately discoverable. The off-white background is clean and professional without the sterility of pure white.
 - **Negative:** Five colours to manage instead of two. The secondary teal (`#0F8B8D`) needs care — it must not be used for critical body text at small sizes.
 - **Accepted risk:** The warm palette works for the current single-page portfolio. If dark mode is added later, these colours will need dark variants (likely a full second palette rather than a simple inversion).
 
