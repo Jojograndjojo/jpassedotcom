@@ -57,3 +57,20 @@ describe("Homepage (SCN-01)", () => {
     expect(html).toContain('href="/fr/"');
   });
 });
+
+describe("Root redirect", () => {
+  it("serves a redirect page at /", () => {
+    const html = readFileSync(join(distDir, "index.html"), "utf-8");
+    expect(html).toContain("window.location.replace");
+  });
+
+  it("includes a fallback link to English", () => {
+    const html = readFileSync(join(distDir, "index.html"), "utf-8");
+    expect(html).toContain('href="/en/"');
+  });
+
+  it("includes a fallback link to French", () => {
+    const html = readFileSync(join(distDir, "index.html"), "utf-8");
+    expect(html).toContain('href="/fr/"');
+  });
+});
