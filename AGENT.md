@@ -133,11 +133,11 @@ Full docs: https://docs.astro.build
 
 Decisions live in `dr/<type>/` as `DR-nnnn-<slug>.md`.
 
-| Type | Directory | When to use |
-| --- | --- | --- |
-| `adr` | `dr/adr/` | Architecture decisions — runtime, framework, infra, data, auth |
+| Type  | Directory | When to use                                                        |
+| ----- | --------- | ------------------------------------------------------------------ |
+| `adr` | `dr/adr/` | Architecture decisions — runtime, framework, infra, data, auth     |
 | `sdr` | `dr/sdr/` | Scope decisions — what's in/out, capability boundaries, sequencing |
-| `udr` | `dr/udr/` | UX decisions — interaction patterns, accessibility, design system |
+| `udr` | `dr/udr/` | UX decisions — interaction patterns, accessibility, design system  |
 
 Numbering is global. Use `/skill:create-decision-record` to record new decisions.
 The global ledger is `dr/DECISION_LOG.md`.

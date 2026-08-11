@@ -36,12 +36,12 @@ jpassedotcom starts as a single static page but will grow to include articles, t
 
 ## Options considered
 
-| Option | Summary | Why not chosen |
-| --- | --- | --- |
-| Plain HTML/CSS | No build step, no framework | Would require a migration when content sections arrive; incremental cost of Astro is low enough to pay now |
-| 11ty (Eleventy) | Node-based SSG, simpler than Astro, strong Markdown support | Astro has better component model for the portfolio's visual sections; author expressed preference for Astro |
-| Hugo | Go-based SSG, very fast builds | Requires Go toolchain; author doesn't have Go installed; Node is the available runtime |
-| **Astro** | Component-based SSG, Markdown-native, builds to static HTML, Node ecosystem | **Chosen** |
+| Option          | Summary                                                                     | Why not chosen                                                                                              |
+| --------------- | --------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| Plain HTML/CSS  | No build step, no framework                                                 | Would require a migration when content sections arrive; incremental cost of Astro is low enough to pay now  |
+| 11ty (Eleventy) | Node-based SSG, simpler than Astro, strong Markdown support                 | Astro has better component model for the portfolio's visual sections; author expressed preference for Astro |
+| Hugo            | Go-based SSG, very fast builds                                              | Requires Go toolchain; author doesn't have Go installed; Node is the available runtime                      |
+| **Astro**       | Component-based SSG, Markdown-native, builds to static HTML, Node ecosystem | **Chosen**                                                                                                  |
 
 ## Decision outcome
 
@@ -55,7 +55,7 @@ Astro is the static site generator for jpassedotcom. The initial build outputs a
 
 ## Evidence
 
-| Source | What it establishes |
-| --- | --- |
-| Greenfield init interview, Round 3 (2025-08-10) | User chose Astro. Node v26.7.0 confirmed available. |
-| Astro documentation (astro.build) | Astro builds to static HTML by default, supports Markdown content collections, and runs on Node. |
+| Source                                          | What it establishes                                                                              |
+| ----------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Greenfield init interview, Round 3 (2025-08-10) | User chose Astro. Node v26.7.0 confirmed available.                                              |
+| Astro documentation (astro.build)               | Astro builds to static HTML by default, supports Markdown content collections, and runs on Node. |

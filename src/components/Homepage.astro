@@ -2,9 +2,9 @@
 import { getTranslation } from "../lib/i18n";
 
 interface Props {
-	locale: string;
-	alternateLocale: string;
-	alternateUrl: string;
+  locale: string;
+  alternateLocale: string;
+  alternateUrl: string;
 }
 
 const { locale } = Astro.props;
@@ -17,16 +17,15 @@ const linkedinUrl = getTranslation(locale, "contact.linkedinUrl");
 ---
 
 <article>
-	<h1>{name}</h1>
-	<img
-		src="/main.jpg"
-		alt={`Photograph of ${name}`}
-		width="300"
-		height="300"
-	/>
-	<p>{identity}</p>
-	<ul>
-		<li><a href={`mailto:${emailAddress}`}>{emailLabel}</a></li>
-		<li><a href={linkedinUrl} rel="noopener noreferrer" target="_blank">{linkedinLabel}</a></li>
-	</ul>
+  <h1>{name}</h1>
+  <img src="/main.jpg" alt={`Photograph of ${name}`} width="300" height="300" />
+  <p>{identity}</p>
+  <ul>
+    <li><a href={`mailto:${emailAddress}`}>{emailLabel}</a></li>
+    <li>
+      <a href={linkedinUrl} rel="noopener noreferrer" target="_blank"
+        >{linkedinLabel}</a
+      >
+    </li>
+  </ul>
 </article>

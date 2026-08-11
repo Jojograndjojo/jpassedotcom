@@ -2,36 +2,36 @@
 import { getTranslation } from "../lib/i18n";
 
 interface Props {
-	locale: string;
-	title: string;
-	alternateLocale: string;
-	alternateUrl: string;
+  locale: string;
+  title: string;
+  alternateLocale: string;
+  alternateUrl: string;
 }
 
 const { locale, title, alternateLocale, alternateUrl } = Astro.props;
 const toggleLabel = getTranslation(locale, "languageToggle");
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang={locale}>
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<header>
-			<nav>
-				<a href={alternateUrl} hreflang={alternateLocale}>
-					{toggleLabel}
-				</a>
-			</nav>
-		</header>
-		<main>
-			<slot />
-		</main>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href={alternateUrl} hreflang={alternateLocale}>
+          {toggleLabel}
+        </a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+  </body>
 </html>

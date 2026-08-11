@@ -36,12 +36,12 @@ jpassedotcom is a static site built with Astro. It needs a hosting platform that
 
 ## Options considered
 
-| Option | Summary | Why not chosen |
-| --- | --- | --- |
-| Cloudflare Pages | Global CDN, built-in analytics, automatic HTTPS, custom domain support | Requires Cloudflare account and DNS management on Cloudflare's nameservers; adds an external dependency when GitHub already hosts the repo |
-| Vercel | Optimized for frontend frameworks, automatic HTTPS, custom domain support | Free tier includes bandwidth limits and branding; another external account for a project already on GitHub |
-| Netlify | Similar to Vercel, strong static site support | Same tradeoffs as Vercel — another account, another platform |
-| **GitHub Pages** | Free, built into GitHub, custom domain support, automatic HTTPS via Let's Encrypt, deploy via branch push or GitHub Action | **Chosen** |
+| Option           | Summary                                                                                                                    | Why not chosen                                                                                                                             |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| Cloudflare Pages | Global CDN, built-in analytics, automatic HTTPS, custom domain support                                                     | Requires Cloudflare account and DNS management on Cloudflare's nameservers; adds an external dependency when GitHub already hosts the repo |
+| Vercel           | Optimized for frontend frameworks, automatic HTTPS, custom domain support                                                  | Free tier includes bandwidth limits and branding; another external account for a project already on GitHub                                 |
+| Netlify          | Similar to Vercel, strong static site support                                                                              | Same tradeoffs as Vercel — another account, another platform                                                                               |
+| **GitHub Pages** | Free, built into GitHub, custom domain support, automatic HTTPS via Let's Encrypt, deploy via branch push or GitHub Action | **Chosen**                                                                                                                                 |
 
 ## Decision outcome
 
@@ -55,6 +55,6 @@ The site deploys to GitHub Pages with the custom domain jpasse.com. Deployment i
 
 ## Evidence
 
-| Source | What it establishes |
-| --- | --- |
+| Source                                          | What it establishes                                                |
+| ----------------------------------------------- | ------------------------------------------------------------------ |
 | Greenfield init interview, Round 3 (2025-08-10) | User chose GitHub Pages. Domain jpasse.com confirmed on Namecheap. |

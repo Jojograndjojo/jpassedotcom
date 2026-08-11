@@ -33,10 +33,10 @@ jpassedotcom targets potential clients and employers. The author is bilingual (E
 
 ## Options considered
 
-| Option | Summary | Why not chosen |
-| --- | --- | --- |
+| Option                                | Summary                                                                 | Why not chosen                                                                                                                                                            |
+| ------------------------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | English only for v1, add French later | Ship English page, translate when French-speaking audience materializes | Retrofitting bilingual support across multiple content sections is more work than starting with it; the MVP text is minimal — the cost of French now is a few extra lines |
-| **Bilingual from day one** | English and French versions of all content from the start | **Chosen** |
+| **Bilingual from day one**            | English and French versions of all content from the start               | **Chosen**                                                                                                                                                                |
 
 ## Decision outcome
 
@@ -50,6 +50,6 @@ The site is bilingual from day one. Every content section (starting with the sin
 
 ## Evidence
 
-| Source | What it establishes |
-| --- | --- |
+| Source                                          | What it establishes                                                        |
+| ----------------------------------------------- | -------------------------------------------------------------------------- |
 | Greenfield init interview, Round 3 (2025-08-10) | User confirmed bilingual requirement for French-speaking client targeting. |

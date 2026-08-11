@@ -34,10 +34,10 @@ We are designing the interaction for potential clients and employers visiting jp
 
 ## Options considered
 
-| Option | Summary | Why not chosen |
-| --- | --- | --- |
-| Desktop-first, mobile later | Ship desktop layout, add responsive breakpoints in v2 | Audience will view on phones from day one; not worth the rework |
-| **Responsive from day one** | Layout adapts to viewport width; all content legible on any device | **Chosen** |
+| Option                      | Summary                                                            | Why not chosen                                                  |
+| --------------------------- | ------------------------------------------------------------------ | --------------------------------------------------------------- |
+| Desktop-first, mobile later | Ship desktop layout, add responsive breakpoints in v2              | Audience will view on phones from day one; not worth the rework |
+| **Responsive from day one** | Layout adapts to viewport width; all content legible on any device | **Chosen**                                                      |
 
 ## Decision outcome
 
@@ -51,6 +51,6 @@ The page is responsive from day one. It must be legible and navigable on any vie
 
 ## Evidence
 
-| Source | What it establishes |
-| --- | --- |
+| Source                                          | What it establishes                       |
+| ----------------------------------------------- | ----------------------------------------- |
 | Greenfield init interview, Round 2 (2025-08-10) | User confirmed "Responsive from day one." |

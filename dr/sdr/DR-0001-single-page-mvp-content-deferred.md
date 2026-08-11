@@ -34,11 +34,11 @@ We are defining the MVP for jpassedotcom, a software engineering portfolio site.
 
 ## Options considered
 
-| Option | Summary | Why not chosen |
-| --- | --- | --- |
+| Option                      | Summary                                                                             | Why not chosen                                                   |
+| --------------------------- | ----------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
 | Wait until content is ready | Build the full portfolio with articles, talks, projects, and events before shipping | Delays having any presence at all; content creation is unbounded |
-| Ship progressively | Ship single page then add sections as content is created | Not chosen — this option *was* chosen and documented here |
-| **Single page only for v1** | Name, photo, email link, and social links. Ship immediately. | **Chosen** |
+| Ship progressively          | Ship single page then add sections as content is created                            | Not chosen — this option _was_ chosen and documented here        |
+| **Single page only for v1** | Name, photo, email link, and social links. Ship immediately.                        | **Chosen**                                                       |
 
 ## Decision outcome
 
@@ -52,6 +52,6 @@ The first release is a single static page with name, photo, email contact, and s
 
 ## Evidence
 
-| Source | What it establishes |
-| --- | --- |
+| Source                                            | What it establishes                                                                       |
+| ------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | Greenfield init interview, Round 1-2 (2025-08-10) | User confirmed MVP is single page with name, photo, email. All content sections deferred. |

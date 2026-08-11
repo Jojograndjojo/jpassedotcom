@@ -8,8 +8,8 @@ The personal site of Jonathan Passe, software engineer. It serves as a professio
 
 ## Success metrics
 
-| Metric | Target | How measured |
-| --- | --- | --- |
+| Metric  | Target             | How measured                            |
+| ------- | ------------------ | --------------------------------------- |
 | Shipped | Live on jpasse.com | Navigate to the domain and see the page |
 
 ## MVP scope
@@ -19,15 +19,15 @@ The personal site of Jonathan Passe, software engineer. It serves as a professio
 
 ### Explicitly out of scope
 
-| Not in v1 | Why | Deferred to |
-| --- | --- | --- |
-| Articles listing | Content doesn't exist yet; page needs to ship first | v2 |
-| Talks listing | Content doesn't exist yet | v2 |
-| Public projects listing | Content doesn't exist yet | v2 |
-| Upcoming events listing | Content doesn't exist yet | v2 |
-| Blog | Separate concern; portfolio page first | v2 |
-| Analytics | Premature before traffic exists | v2 |
-| Dark mode | Visual polish; ship the content first | v2 |
+| Not in v1               | Why                                                 | Deferred to |
+| ----------------------- | --------------------------------------------------- | ----------- |
+| Articles listing        | Content doesn't exist yet; page needs to ship first | v2          |
+| Talks listing           | Content doesn't exist yet                           | v2          |
+| Public projects listing | Content doesn't exist yet                           | v2          |
+| Upcoming events listing | Content doesn't exist yet                           | v2          |
+| Blog                    | Separate concern; portfolio page first              | v2          |
+| Analytics               | Premature before traffic exists                     | v2          |
+| Dark mode               | Visual polish; ship the content first               | v2          |
 
 ## Capabilities
 
@@ -35,12 +35,12 @@ The personal site of Jonathan Passe, software engineer. It serves as a professio
 
 ## Stack
 
-| Layer | Choice | Why (short) |
-| --- | --- | --- |
-| Runtime | Node v26 | Available in environment; Astro runs on Node |
-| Framework | Astro | Component-based SSG, Markdown-native, scales from one page to content-rich site |
-| Infrastructure | GitHub Pages | Free, built into GitHub, custom domain jpasse.com with HTTPS |
-| Data | None | Static site — no persistence needed |
+| Layer          | Choice       | Why (short)                                                                     |
+| -------------- | ------------ | ------------------------------------------------------------------------------- |
+| Runtime        | Node v26     | Available in environment; Astro runs on Node                                    |
+| Framework      | Astro        | Component-based SSG, Markdown-native, scales from one page to content-rich site |
+| Infrastructure | GitHub Pages | Free, built into GitHub, custom domain jpasse.com with HTTPS                    |
+| Data           | None         | Static site — no persistence needed                                             |
 
 Full architecture decisions: [`dr/adr/`](dr/adr/)
 
@@ -75,6 +75,7 @@ just check
 ## Decisions
 
 All decisions are recorded in [`dr/`](dr/) organized by type:
+
 - [`adr/`](dr/adr/) — Architecture decisions
 - [`sdr/`](dr/sdr/) — Scope decisions
 - [`udr/`](dr/udr/) — UX decisions
