@@ -6,7 +6,5 @@
   "contact.linkedin": "LinkedIn",
   "contact.linkedinUrl": "https://www.linkedin.com/in/jonathan-passe-618579127/",
   "languageToggle": "English",
-  "meta": {
-    "description": "Jonathan Passe — Ingénieur logiciel. Je fais le pont entre l'architecture technique et la connaissance humaine."
-  }
+  "meta.description": "Jonathan Passe — Ingénieur logiciel. Je fais le pont entre l'architecture technique et la connaissance humaine."
 }

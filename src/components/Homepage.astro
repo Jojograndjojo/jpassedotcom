@@ -16,16 +16,25 @@ const linkedinLabel = getTranslation(locale, "contact.linkedin");
 const linkedinUrl = getTranslation(locale, "contact.linkedinUrl");
 ---
 
-<article>
-  <h1>{name}</h1>
-  <img src="/main.jpg" alt={`Photograph of ${name}`} width="300" height="300" />
-  <p>{identity}</p>
-  <ul>
-    <li><a href={`mailto:${emailAddress}`}>{emailLabel}</a></li>
-    <li>
-      <a href={linkedinUrl} rel="noopener noreferrer" target="_blank"
-        >{linkedinLabel}</a
-      >
-    </li>
-  </ul>
+<article class="homepage">
+  <div class="homepage-photo">
+    <img
+      src="/main.jpg"
+      alt={`Photograph of ${name}`}
+      width="300"
+      height="300"
+    />
+  </div>
+  <div class="homepage-text">
+    <h1>{name}</h1>
+    <p>{identity}</p>
+    <ul>
+      <li><a href={`mailto:${emailAddress}`}>{emailLabel}</a></li>
+      <li>
+        <a href={linkedinUrl} rel="noopener noreferrer" target="_blank"
+          >{linkedinLabel}</a
+        >
+      </li>
+    </ul>
+  </div>
 </article>

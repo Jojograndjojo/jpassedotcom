@@ -1,47 +1,39 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Page not found — Jonathan Passe</title>
-    <style>
-      body {
-        font-family: system-ui, sans-serif;
-        max-width: 36rem;
-        margin: 4rem auto;
-        padding: 0 1rem;
-        line-height: 1.6;
-      }
-      h1 {
-        font-size: 1.5rem;
-      }
-      .lang {
-        display: none;
-      }
-    </style>
-    <script>
-      const prefersFrench = navigator.language.startsWith("fr");
-      document.documentElement.lang = prefersFrench ? "fr" : "en";
-      document.title = prefersFrench
-        ? "Page introuvable — Jonathan Passe"
-        : "Page not found — Jonathan Passe";
-      document.getElementById(prefersFrench ? "fr" : "en").style.display =
-        "block";
-    </script>
-  </head>
-  <body>
-    <div id="en" class="lang">
-      <h1>Page not found</h1>
-      <p>The page you're looking for doesn't exist.</p>
-      <p><a href="/en/">Back to home</a></p>
-    </div>
-    <div id="fr" class="lang">
-      <h1>Page introuvable</h1>
-      <p>La page que vous cherchez n'existe pas.</p>
-      <p><a href="/fr/">Retour à l'accueil</a></p>
-    </div>
-    <noscript>
-      <p><a href="/en/">English</a> — <a href="/fr/">Français</a></p>
-    </noscript>
-  </body>
-</html>
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base
+  locale="en"
+  title="Page not found — Jonathan Passe"
+  alternateLocale="fr"
+  alternateUrl="/fr/"
+>
+  <div id="en" class="lang">
+    <h1>Page not found</h1>
+    <p>The page you're looking for doesn't exist.</p>
+    <p><a href="/en/">Back to home</a></p>
+  </div>
+  <div id="fr" class="lang">
+    <h1>Page introuvable</h1>
+    <p>La page que vous cherchez n'existe pas.</p>
+    <p><a href="/fr/">Retour à l'accueil</a></p>
+  </div>
+  <noscript>
+    <p><a href="/en/">English</a> — <a href="/fr/">Français</a></p>
+  </noscript>
+</Base>
+
+<script>
+  const prefersFrench = navigator.language.startsWith("fr");
+  document.documentElement.lang = prefersFrench ? "fr" : "en";
+  document.title = prefersFrench
+    ? "Page introuvable — Jonathan Passe"
+    : "Page not found — Jonathan Passe";
+  document.getElementById(prefersFrench ? "fr" : "en").style.display = "block";
+</script>
+
+<style is:global>
+  .lang {
+    display: none;
+  }
+</style>
