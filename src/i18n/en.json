@@ -5,5 +5,8 @@
   "contact.emailAddress": "jonathanpasse@protonmail.com",
   "contact.linkedin": "LinkedIn",
   "contact.linkedinUrl": "https://www.linkedin.com/in/jonathan-passe-618579127/",
-  "languageToggle": "Français"
+  "languageToggle": "Français",
+  "meta": {
+    "description": "Jonathan Passe — Software engineer. I bridge the gap between technical architecture and human knowledge."
+  }
 }

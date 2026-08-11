@@ -96,3 +96,31 @@ describe("404 page", () => {
     expect(html).toContain('href="/fr/"');
   });
 });
+
+describe("SEO metadata", () => {
+  it("includes og:title on the English page", () => {
+    const html = readFileSync(join(distDir, "en", "index.html"), "utf-8");
+    expect(html).toContain(
+      '<meta property="og:title" content="Jonathan Passe — Software Engineer">',
+    );
+  });
+
+  it("includes og:description on the English page", () => {
+    const html = readFileSync(join(distDir, "en", "index.html"), "utf-8");
+    expect(html).toMatch(/<meta property="og:description" content="[^"]+">/);
+  });
+
+  it("includes canonical URL", () => {
+    const html = readFileSync(join(distDir, "en", "index.html"), "utf-8");
+    expect(html).toContain(
+      '<link rel="canonical" href="https://jpasse.com/en/">',
+    );
+  });
+
+  it("includes alternate language link", () => {
+    const html = readFileSync(join(distDir, "en", "index.html"), "utf-8");
+    expect(html).toContain(
+      '<link rel="alternate" hreflang="fr" href="https://jpasse.com/fr/">',
+    );
+  });
+});
