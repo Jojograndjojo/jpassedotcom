@@ -1,7 +1,6 @@
-import { describe, it, expect, beforeAll } from "vitest";
+import { describe, it, expect } from "vitest";
 import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
-import { execSync } from "node:child_process";
 
 const distDir = join(__dirname, "..", "..", "dist");
 
@@ -19,14 +18,6 @@ function getBuiltHtmlFiles(): string[] {
 }
 
 describe("CFR-SEC-02: No third-party JavaScript", () => {
-  beforeAll(() => {
-    execSync("npm run build", {
-      cwd: join(__dirname, "..", ".."),
-      stdio: "pipe",
-      timeout: 30000,
-    });
-  }, 30000);
-
   it("contains no external script tags in any page", () => {
     const htmlFiles = getBuiltHtmlFiles();
     expect(htmlFiles.length).toBeGreaterThan(0);

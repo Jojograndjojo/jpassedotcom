@@ -1,20 +1,10 @@
-import { describe, it, expect, beforeAll } from "vitest";
+import { describe, it, expect } from "vitest";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { execSync } from "node:child_process";
 
 const distDir = join(__dirname, "..", "..", "dist");
 
 describe("Homepage (SCN-01)", () => {
-  beforeAll(() => {
-    // Build the site before tests run
-    execSync("npm run build", {
-      cwd: join(__dirname, "..", ".."),
-      stdio: "pipe",
-      timeout: 30000,
-    });
-  }, 30000);
-
   it("serves the English homepage at /en/", () => {
     const html = readFileSync(join(distDir, "en", "index.html"), "utf-8");
     expect(html).toContain("Jonathan Passe");
