@@ -2,11 +2,15 @@
 
 :root {
   /* Colour */
-  --color-background: #fafafa;
-  --color-text: #143642;
-  --color-accent: #bf3100;
+  --color-background: #000000;
+  --color-text: #f5f5f5;
+  --color-text-muted: #bdbdbd;
+  --color-accent: #e05a2a;
   --color-accent-hover: #ff9f1c;
   --color-secondary: #0f8b8d;
+  --color-leaf-green: #2e7d32;
+  --color-calebasse: #c68b59;
+  --color-calebasse-rim: #143642;
 
   /* Typography */
   --font-family-body:
@@ -25,10 +29,13 @@
   --space-sm: 0.5rem;
   --space-md: 1rem;
   --space-lg: 2rem;
+  --space-xl: 3rem;
   --content-width: 36rem;
 
-  /* Interaction */
-  --transition-duration: 150ms;
+  /* Interaction & motion */
+  --duration-fast: 187.5ms;
+  --duration-medium: 500ms;
+  --duration-slow: 1000ms;
 }
 
 /* ---- Reset ---- */
@@ -67,8 +74,8 @@ header nav a {
   color: var(--color-secondary);
   text-decoration: none;
   transition:
-    color var(--transition-duration) ease,
-    opacity var(--transition-duration) ease;
+    color var(--duration-fast) ease,
+    opacity var(--duration-fast) ease;
 }
 
 header nav a:hover {
@@ -85,27 +92,58 @@ main {
   padding: var(--space-lg) var(--space-md);
 }
 
-/* ---- Homepage layout ---- */
+/* ---- Homepage hero ---- */
 
 .homepage {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-lg);
 }
 
-@media (width >= 600px) {
-  .homepage {
-    flex-direction: row;
-    align-items: flex-start;
-  }
+.hero {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-md);
+}
 
-  .homepage-text {
-    flex: 1;
-  }
+.hero__media {
+  position: relative;
+  width: 408px;
+  height: 280px;
+  margin: 0 auto;
+}
 
-  .homepage-photo {
-    flex-shrink: 0;
+.hero__photo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 280px;
+  z-index: 1;
+}
+
+.hero__brand {
+  position: absolute;
+  left: 80px;
+  top: 0;
+  width: 375px;
+  z-index: 2;
+  transform-origin: 0 50%;
+  transform: translateY(48px) rotate(-90deg) scale(0.256);
+}
+
+.hero__calebasse {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 480px) {
+  .hero__media {
+    scale: 0.72;
   }
 }
 
@@ -115,11 +153,16 @@ h1 {
   font-size: var(--font-size-h1);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-heading);
-  margin: 0 0 var(--space-sm);
+  margin: 0;
 }
 
 p {
-  margin: 0 0 var(--space-md);
+  margin: 0;
+}
+
+.hero__bio {
+  color: var(--color-text-muted);
+  max-width: 32rem;
 }
 
 /* ---- Lists ---- */
@@ -130,8 +173,13 @@ ul {
   margin: 0;
 }
 
-li {
-  margin-bottom: var(--space-sm);
+.hero__contact {
+  display: flex;
+  gap: var(--space-lg);
+}
+
+.hero__contact li {
+  margin: 0;
 }
 
 /* ---- Links ---- */
@@ -140,8 +188,8 @@ a {
   color: var(--color-accent);
   text-decoration: none;
   transition:
-    color var(--transition-duration) ease,
-    opacity var(--transition-duration) ease;
+    color var(--duration-fast) ease,
+    opacity var(--duration-fast) ease;
 }
 
 a:hover {
@@ -163,9 +211,114 @@ img {
   display: block;
 }
 
-.homepage-photo img {
-  width: 300px;
+.hero__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 50%;
+  filter: grayscale(100%);
+}
+
+/* ---- Intro animation (progressive enhancement) ---- */
+
+.is-enhanced:not(.reduced-motion) .hero__brand {
+  transform: translateY(0) rotate(0deg) scale(1);
+}
+
+.hero[data-step="open"] .hero__brand,
+.hero[data-step="scale"] .hero__brand,
+.hero[data-step="rise"] .hero__brand,
+.hero[data-step="name"] .hero__brand,
+.hero[data-step="bio"] .hero__brand,
+.hero[data-step="complete"] .hero__brand {
+  transform: translateY(48px) rotate(-90deg) scale(0.256);
+  transition: transform var(--duration-slow) ease-in-out;
+}
+
+.is-enhanced:not(.reduced-motion) .hero__photo {
+  opacity: 0;
+  transform: scale(0.4);
+}
+
+.hero[data-step="open"] .hero__photo,
+.hero[data-step="scale"] .hero__photo,
+.hero[data-step="rise"] .hero__photo,
+.hero[data-step="name"] .hero__photo,
+.hero[data-step="bio"] .hero__photo,
+.hero[data-step="complete"] .hero__photo {
+  opacity: 1;
+  transform: scale(0.65);
+  transition:
+    opacity var(--duration-medium) ease-out var(--duration-medium),
+    transform var(--duration-medium) ease-in-out var(--duration-medium);
+}
+
+.hero[data-step="scale"] .hero__photo,
+.hero[data-step="rise"] .hero__photo,
+.hero[data-step="name"] .hero__photo,
+.hero[data-step="bio"] .hero__photo,
+.hero[data-step="complete"] .hero__photo {
+  transform: scale(1);
+  transition:
+    opacity var(--duration-medium) ease-out,
+    transform var(--duration-medium) ease-in-out;
+}
+
+.is-enhanced:not(.reduced-motion) .hero__media {
+  transform: translateY(48px);
+  transition: transform var(--duration-medium) ease-in-out;
+}
+
+.hero[data-step="rise"] .hero__media,
+.hero[data-step="name"] .hero__media,
+.hero[data-step="bio"] .hero__media,
+.hero[data-step="complete"] .hero__media {
+  transform: translateY(0);
+}
+
+.is-enhanced:not(.reduced-motion) .hero__name,
+.is-enhanced:not(.reduced-motion) .hero__bio,
+.is-enhanced:not(.reduced-motion) .hero__contact {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity var(--duration-medium) ease-out,
+    transform var(--duration-medium) ease-out;
+}
+
+.hero[data-step="name"] .hero__name,
+.hero[data-step="bio"] .hero__name,
+.hero[data-step="complete"] .hero__name,
+.hero[data-step="bio"] .hero__bio,
+.hero[data-step="complete"] .hero__bio,
+.hero[data-step="bio"] .hero__contact,
+.hero[data-step="complete"] .hero__contact {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- Reduced motion ---- */
+
+.reduced-motion .hero__brand,
+.reduced-motion .hero__photo,
+.reduced-motion .hero__name,
+.reduced-motion .hero__bio,
+.reduced-motion .hero__contact,
+.reduced-motion .hero__media {
+  opacity: 1;
+  transition: none;
+}
+
+.reduced-motion .hero__brand {
+  transform: translateY(48px) rotate(-90deg) scale(0.256);
+}
+
+.reduced-motion .hero__photo,
+.reduced-motion .hero__name,
+.reduced-motion .hero__bio,
+.reduced-motion .hero__contact,
+.reduced-motion .hero__media {
+  transform: none;
 }
 
 /* ---- Print ---- */
@@ -173,6 +326,14 @@ img {
 @media print {
   header {
     display: none;
+  }
+
+  .hero__brand {
+    display: none;
+  }
+
+  .hero__photo img {
+    filter: none;
   }
 
   body {

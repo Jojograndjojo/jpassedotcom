@@ -17,18 +17,34 @@ const linkedinUrl = getTranslation(locale, "contact.linkedinUrl");
 ---
 
 <article class="homepage">
-  <div class="homepage-photo">
-    <img
-      src="/main.jpg"
-      alt={`Photograph of ${name}`}
-      width="300"
-      height="300"
-    />
-  </div>
-  <div class="homepage-text">
-    <h1>{name}</h1>
-    <p>{identity}</p>
-    <ul>
+  <section class="hero" data-hero data-step="idle">
+    <div class="hero__media" data-media>
+      <div class="hero__brand" data-brand>
+        <img
+          class="hero__calebasse"
+          src="/calebasse.svg"
+          alt=""
+          aria-hidden="true"
+        />
+      </div>
+
+      <div class="hero__photo" data-photo>
+        <img
+          src="/main.jpg"
+          alt={`Photograph of ${name}`}
+          width="300"
+          height="300"
+        />
+      </div>
+    </div>
+
+    <h1 class="hero__name" data-name>
+      {name}
+    </h1>
+    <p class="hero__bio" data-bio>
+      {identity}
+    </p>
+    <ul class="hero__contact" data-contact>
       <li><a href={`mailto:${emailAddress}`}>{emailLabel}</a></li>
       <li>
         <a href={linkedinUrl} rel="noopener noreferrer" target="_blank"
@@ -36,5 +52,60 @@ const linkedinUrl = getTranslation(locale, "contact.linkedinUrl");
         >
       </li>
     </ul>
-  </div>
+  </section>
 </article>
+
+<script>
+  import { advance, createIntroState, start } from "../lib/intro";
+
+  const hero = document.querySelector("[data-hero]");
+
+  if (hero) {
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    document.documentElement.classList.add("is-enhanced");
+    if (reducedMotion) {
+      document.documentElement.classList.add("reduced-motion");
+    }
+
+    const renderStep = (step: string) => {
+      hero.dataset.step = step;
+    };
+
+    const runIntro = () => {
+      const stepDuration: Record<string, number> = {
+        open: 1000,
+        scale: 500,
+        rise: 500,
+        name: 500,
+        bio: 500,
+      };
+
+      let current = start(createIntroState());
+      renderStep(current.step);
+
+      const tick = () => {
+        if (current.step === "complete") {
+          return;
+        }
+        const duration = stepDuration[current.step] ?? 400;
+        window.setTimeout(() => {
+          current = advance(current);
+          renderStep(current.step);
+          tick();
+        }, duration);
+      };
+      tick();
+    };
+
+    if (reducedMotion) {
+      renderStep("complete");
+    } else {
+      // Wait two animation frames so the hidden starting state is painted first.
+      // Starting in the same tick would skip the open transition entirely.
+      requestAnimationFrame(() => requestAnimationFrame(runIntro));
+    }
+  }
+</script>
